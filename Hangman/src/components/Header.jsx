@@ -3,9 +3,9 @@ import React from 'react'
 const Header = () => {
   return (
     <>
-      <h1>FE Hangman</h1>
-      <h3 style={{position: 'relative', color: 'green', fontStyle: 'bold'}}>Level: Beginner</h3>
-      <p>Find the hidden word - Enter a letter</p>
+      <h2 style={{marginTop: '30px'}}>FE Hangman</h2>
+      <h3 style={{position: 'relative', color: 'green', fontStyle: 'bold', fontSize: '25px'}}>Level: Beginner</h3>
+      <p>To find the hidden word - Enter a letter</p>
     </>
   )
 }

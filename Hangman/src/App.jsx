@@ -17,31 +17,36 @@ function App() {
   const [correctLetters, setcorrectLetters] = useState([]);
   const [wrongLetters, setwrongLetters] = useState([]);
   const [showNotification, setshowNotification] = useState(false);
+  
 
-  useEffect(()=> {
-    const handleKeydown = event => {
-      const {key, keyCode} = event;
-        if (playable && keyCode >= 65 && keyCode <= 90) {
-          const letter = key.toLowerCase();
-    
-          if (selectedWord.includes(letter)) {
-            if (!correctLetters.includes(letter)) {
-              setcorrectLetters(currentLetters => [...currentLetters, letter]);
-            } else {
-              show(setshowNotification);
-            }
-          } else {
-            if (!wrongLetters.includes(letter)) {
-              setwrongLetters(wrongLetters => [...wrongLetters, letter]);
-            } else {
-              show(setshowNotification);
-            }
-          }
-        }
+  const handleLetterChange = (letter) => {
+    if (selectedWord.includes(letter)) {
+      if (!correctLetters.includes(letter)) {
+        setcorrectLetters([...correctLetters, letter]);
+      } else {
+        show(setshowNotification);
       }
-      window.addEventListener('keydown', handleKeydown);
-      return() => window.removeEventListener('keydown', handleKeydown);
+    } else {
+      if (!wrongLetters.includes(letter)) {
+        setwrongLetters([...wrongLetters, letter]);
+      } else {
+        show(setshowNotification);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const handleKeydown = event => {
+      const { key, keyCode } = event;
+      if (playable && keyCode >= 65 && keyCode <= 90) {
+        const letter = key.toLowerCase();
+        handleLetterChange(letter);
+      }
+    };
+    window.addEventListener('keydown', handleKeydown);
+    return () => window.removeEventListener('keydown', handleKeydown);
   }, [correctLetters, wrongLetters, playable]);
+
 
   function playAgain() {
     setPlayable(true);
@@ -60,7 +65,7 @@ function App() {
       <div className='game-container'>
         <Figure wrongLetters={wrongLetters} />
         <WrongLetters wrongLetters={wrongLetters} />
-        <Word selectedWord={selectedWord} correctLetters={correctLetters} />
+        <Word selectedWord={selectedWord} correctLetters={correctLetters} onLetterChange={handleLetterChange} />
       </div>
         <Popup correctLetters={correctLetters} wrongLetters={wrongLetters} selectedWord={selectedWord} setPlayable={setPlayable} playAgain={playAgain} />
         <Notification showNotification={showNotification} />

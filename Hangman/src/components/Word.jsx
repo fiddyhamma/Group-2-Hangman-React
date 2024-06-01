@@ -1,37 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Word({ selectedWord, correctLetters, onLetterChange }) {
-  const [inputValue, setInputValue] = useState('');
-
-  const handleInputChange = (event) => {
-    const { value } = event.target;
-    setInputValue(value);
-    onLetterChange(value); // Notify parent component of letter input
-  };
+function Keypad({ onKeyPress }) {
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   return (
-    <div className="word">
-      {selectedWord.split('').map((letter, i) => {
-        return (
+    <div className="keypad">
+      {letters.map((letter) => (
+        <button
+          key={letter}
+          className="keypad-button"
+          onClick={() => onKeyPress(letter.toLowerCase())}  // ensure lowercase for consistency
+        >
+          {letter}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function Word({ selectedWord, correctLetters, onLetterChange }) {
+  return (
+    <div className="word-container">
+      <div className="word">
+        {selectedWord.split('').map((letter, i) => (
           <span className="letter" key={i}>
             {correctLetters.includes(letter) ? letter : ''}
           </span>
-        );
-      })}
-    <input
-      className="phone"
-      type="text"
-      value={inputValue}
-      onChange={handleInputChange}
-      maxLength={1} // Limit input to one character
-      autoComplete="off"
-      autoCorrect="off"
-      autoCapitalize="off"
-      spellCheck="false"
-    />
+        ))}
+      </div>
+      <Keypad onKeyPress={onLetterChange} />
     </div>
   );
 }
 
 export default Word;
-
