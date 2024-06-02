@@ -19,10 +19,10 @@ h1 {
 }
 
 .game-container {
-  padding: 5px 20px ;
   position: relative;
-  height: 350px;
-  width: 450px;
+  padding: 5px 20px ;
+  height: 500px;
+  width: 500px;
   margin-right: 50px;
 }
 
@@ -35,8 +35,10 @@ h1 {
 
 .wrong-letters-container {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 50px;
+  right: 122px;
+  color: green;
+  font-style: bold;
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -53,7 +55,7 @@ h1 {
 .word {
   display: flex;
   position: absolute;
-  bottom: 115px;
+  bottom: 265px;
   left: 70%;
   transform: translateX(-50%);
 }
@@ -152,7 +154,15 @@ h1 {
   flex-direction: column;
   align-items: center;
 }
-
+.hint {
+  display: flex;
+  position: absolute;
+  bottom: 460px;
+  left: 55%;
+  font-size: 18px;
+  color: #fff;
+  width: 150%;
+}
 
 @media screen and (max-width: 800px) {
 
@@ -160,11 +170,21 @@ h1 {
     padding: 5px 10px ;
     position: relative;
     height: 300px;
-    width: 320px;
+    width: 300px;
   }
-  
+
+  h2{
+    font-size: 20px;
+  }
+
+  h3{
+    font-size: 16px !important;
+  }
+  p{
+    font-size: 14px;
+  }
   .figure-container {
-    margin-right: 20px;
+    margin-right: 10px;
     fill: transparent !important;
     stroke: #fff !important;
     stroke-width: 4px;
@@ -173,8 +193,10 @@ h1 {
   
   .wrong-letters-container {
     position: absolute;
-    top: 20px;
+    top: 15px;
     right: 20px;
+    color: green;
+    font-style: bold;
     display: flex;
     flex-direction: column;
     text-align: right;
@@ -185,13 +207,13 @@ h1 {
   }
   
   .wrong-letters-container span {
-    font-size: 24px;
+    font-size: 20px;
   }
   
   .word {
     display: flex;
     position: absolute;
-    bottom: 40px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -199,7 +221,7 @@ h1 {
   .letter {
     border-bottom: 3px solid #2980b9;
     display: inline-flex;
-    font-size: 30px;
+    font-size: 25px;
     align-items: center;
     justify-content: center;
     margin: 0 3px;
@@ -267,6 +289,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 30px;
   }
   
   .keypad-button {
@@ -290,6 +313,15 @@ h1 {
     flex-direction: column;
     align-items: center;
     margin-top: 25px;
+  }
+  .hint {
+    display: flex;
+    position: absolute;
+    bottom: 100px;
+    left: 65%;
+    font-size: 18px;
+    color: #fff;
+    width: 90px;
   }
  
 }
