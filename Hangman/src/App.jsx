@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Figure from './components/Figure';
 import WrongLetters from './components/WrongLetters';
@@ -6,6 +7,9 @@ import Word from './components/Word';
 import Notification from './components/Notification';
 import Popup from './components/Popup';
 import { showNotification as show } from './Helpers/Helpers';
+import HangmanHome from './HangmanHome';
+import Navbar from './components/Navbar';
+import AboutUS from './components/AboutUS';
 import './App.css';
 
 const words = [
@@ -55,13 +59,12 @@ const words = [
 ];
 
 
-function App() {
+const App = () => {
   const [playable, setPlayable] = useState(true);
   const [correctLetters, setcorrectLetters] = useState([]);
   const [wrongLetters, setwrongLetters] = useState([]);
   const [showNotification, setshowNotification] = useState(false);
   const [selectedWordObj, setSelectedWordObj] = useState(words[Math.floor(Math.random() * words.length)]);
-  
 
   const handleLetterChange = (letter) => {
     if (selectedWordObj.word.includes(letter)) {
@@ -87,38 +90,52 @@ function App() {
         handleLetterChange(letter);
       }
     };
+
     window.addEventListener('keydown', handleKeydown);
     return () => window.removeEventListener('keydown', handleKeydown);
   }, [correctLetters, wrongLetters, playable]);
 
-
-  function playAgain() {
+  const playAgain = () => {
     setPlayable(true);
-
     //Empty Arrays
     setcorrectLetters([]);
     setwrongLetters([]);
-
     const random = Math.floor(Math.random() * words.length);
     setSelectedWordObj(words[random]);
-  }
+  };
 
   return (
-    <>
-      <Header />
-      <div className='game-container'>
-        <Figure wrongLetters={wrongLetters} />
-        <Word selectedWord={selectedWordObj.word} correctLetters={correctLetters} onLetterChange={handleLetterChange} />
-        <div className="hint">
-          Hint: {selectedWordObj.hint}
-        </div>
-        <WrongLetters wrongLetters={wrongLetters} />
-      </div>
-        <Popup correctLetters={correctLetters} wrongLetters={wrongLetters} selectedWord={selectedWordObj.word} setPlayable={setPlayable} playAgain={playAgain} />
-        <Notification showNotification={showNotification} />
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HangmanHome />} />
+        <Route path="/about" element={<AboutUS />} />
+        <Route path="/app" element={
+          <>
+            <Header />
+            <div className="game-container">
+            <Figure wrongLetters={wrongLetters} />
+            <Word 
+              selectedWord={selectedWordObj.word} 
+              correctLetters={correctLetters} 
+              onLetterChange={handleLetterChange}
+            />
+            <div className="hint">Hint: {selectedWordObj.hint}</div>
+            <WrongLetters wrongLetters={wrongLetters} />
+            </div>
+            <Popup
+              correctLetters={correctLetters}
+              wrongLetters={wrongLetters}
+              selectedWord={selectedWordObj.word}
+              setPlayable={setPlayable}
+              playAgain={playAgain}
+            />
+            <Notification showNotification={showNotification} />
+          </>
+        } />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
-
