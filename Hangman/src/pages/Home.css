@@ -1,0 +1,56 @@
+/* General Styling */
+body {
+  background-color: #34495e;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+/* Styles for desktops */
+@media (min-width: 1025px) { 
+  h1 {
+    margin: 20px 0 0;
+  }
+  
+  .game-container {
+    position: absolute;
+    padding: 5px 20px ;
+    height: 500px;
+    width: 600px;
+    margin-left: 300px;
+    margin-top: 0;
+    
+  }
+}
+
+/* Styles for tablets */
+@media (min-width: 481px) and (max-width: 1024px) { 
+  h1 {
+    margin: 10px 0 0;
+  }
+  
+  .game-container {
+    position: absolute;
+    left: 110px;
+    padding: 5px 20px ;
+    height: 500px;
+    width: 330px;
+    top: 400px;
+  }
+}
+
+/* Styles for mobile phones */
+@media (max-width: 480px) {
+  h1 {
+    margin: 10px 0 0;
+  }
+  
+  .game-container {
+    position: absolute;
+    padding: 5px 20px ;
+    height: 350px;
+    width: 300px;
+    left: 30px;
+    margin-top: 150px;
+  }
+}

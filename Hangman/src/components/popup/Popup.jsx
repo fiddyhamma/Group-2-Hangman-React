@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
-import { checkWin } from '../Helpers/Helpers';
+import { checkWin } from '../../Helpers/Helpers';
+import './Popup.css';
 
 const Popup = ({correctLetters, wrongLetters, selectedWord, setPlayable, playAgain}) => {
   let finalMessage = '';

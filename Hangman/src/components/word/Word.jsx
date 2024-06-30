@@ -1,4 +1,5 @@
 import React from 'react';
+import './Word.css'
 
 function Keypad({ onKeyPress }) {
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
