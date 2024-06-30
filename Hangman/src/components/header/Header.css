@@ -1,0 +1,14 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    margin-left: 40px;
+  }
+  
+.level{
+    display: flex;
+  }
+  
+.beginner{
+    margin-left: 20px;
+  }

@@ -1,0 +1,17 @@
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 50px;
+    list-style-type: none
+  }
+  
+    /* visited link */
+    a:visited {
+      color: white;
+    }
+    
+    /* mouse over link */
+    a:hover {
+      color: red;
+    }

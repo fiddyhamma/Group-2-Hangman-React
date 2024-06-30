@@ -1,0 +1,68 @@
+/* Styles for desktops */
+@media (min-width: 1025px) {
+.wrong-letters-container {
+    position: absolute;
+    top: 60px;
+    right: 250px;
+    color: rgb(8, 216, 8);
+    font-style: bold;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+  
+  .wrong-letters-container p {
+    margin: 0 0 5px;
+  }
+  
+  .wrong-letters-container span {
+    font-size: 24px;
+  }
+}
+
+/* Styles for tablets */
+@media (min-width: 481px) and (max-width: 1024px) { 
+  .wrong-letters-container {
+    position: absolute;
+    top: 18px;
+    left: 240px;
+    color: rgb(8, 216, 8);
+    font-style: bold;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+  
+  .wrong-letters-container p {
+    margin: 0 0 5px;
+  }
+  
+  .wrong-letters-container span {
+    font-size: 24px;
+  }
+}
+
+/* Styles for mobile phones */
+@media (max-width: 480px) {
+  .wrong-letters-container {
+    position: absolute;
+    top: 18px;
+    left: 200px;
+    color: rgb(8, 216, 8);
+    font-style: bold;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+  
+  .wrong-letters-container p {
+    margin: 0 0 5px;
+  }
+  
+  .wrong-letters-container span {
+    font-size: 24px;
+  }
+}
+
+
+  

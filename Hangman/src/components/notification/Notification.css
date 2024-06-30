@@ -1,0 +1,61 @@
+/* Styles for desktops */
+@media (min-width: 1025px) { 
+.notification-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px 10px 0 0;
+    padding: 15px 20px;
+    position: absolute;
+    margin-left: 500px;
+    bottom: -50px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .notification-container p {
+    margin: 0;
+  }
+  
+  .notification-container.show {
+    transform: translateY(-50px);
+  }
+} 
+/* Styles for tablets */
+@media (min-width: 481px) and (max-width: 1024px) { 
+  .notification-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px 10px 0 0;
+    padding: 15px 20px;
+    position: absolute;
+    bottom: -42px;
+    left: 220px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .notification-container p {
+    margin: 0;
+  }
+  
+  .notification-container.show {
+    transform: translateY(-50px);
+  }
+}
+
+/* Styles for mobile phones */
+@media (max-width: 480px) {
+  .notification-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px 10px 0 0;
+    padding: 15px 20px;
+    position: absolute;
+    bottom: -65%;
+    left: 70px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .notification-container p {
+    margin: 0;
+  }
+  
+  .notification-container.show {
+    transform: translateY(-50px);
+  }
+}
